@@ -16,7 +16,7 @@ export default function MessageCard({ message, onMarkAsViewed }: MessageCardProp
   const handleView = () => {
     if (message.viewPolicy === 'once' && !isViewed) {
       setIsViewed(true);
-      onMarkAsViewed(message._id!);
+      onMarkAsViewed(message._id?.toString() || '');
     }
     setIsExpanded(!isExpanded);
   };

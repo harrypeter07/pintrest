@@ -134,7 +134,7 @@ export default function SecretDashboard() {
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                   {messages.map((message) => (
                     <MessageCard
-                      key={message._id}
+                      key={message._id?.toString()}
                       message={message}
                       onMarkAsViewed={handleMarkAsViewed}
                     />

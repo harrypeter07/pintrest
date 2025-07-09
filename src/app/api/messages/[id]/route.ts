@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { NextRequest, NextResponse } from 'next/server';
 import { getMessagesCollection } from '@/lib/db';
 import { ObjectId } from 'mongodb';
@@ -12,7 +13,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
     const collection = await getMessagesCollection();
     const result = await collection.updateOne(
-      { _id: new ObjectId(id) },
+      { _id: new ObjectId(id) } as any,
       { $set: { isViewed: true } }
     );
 

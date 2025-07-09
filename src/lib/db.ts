@@ -1,7 +1,7 @@
-import { MongoClient, Db, Collection } from 'mongodb';
+import { MongoClient, Db, Collection, ObjectId } from 'mongodb';
 
 interface Message {
-  _id?: string;
+  _id?: ObjectId;
   from: string;
   to: string;
   type: 'text' | 'image';
