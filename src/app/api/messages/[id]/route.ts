@@ -2,9 +2,9 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getMessagesCollection } from '@/lib/db';
 import { ObjectId } from 'mongodb';
 
-export async function PATCH(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const { id } = params;
+    const { id } = await params;
     
     if (!ObjectId.isValid(id)) {
       return NextResponse.json({ message: 'Invalid message ID' }, { status: 400 });
